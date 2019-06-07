@@ -9,14 +9,14 @@
                 // student.leeftijd = leeftijd.value;
                 console.log(student);
                 var JSONStudent = JSON.stringify(student);
-                console.log(JSONSTUDENT);
+                console.log(JSONStudent);
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function(){
                     alert("het is gelukt");
                 }
                 xhr.open("POST", "http://localhost:8082/voegstudenttoe",true);
                 xhr.setRequestHeader('Content-Type','application/json');
-                xhr.send(JSONSTUDENT);
+                xhr.send(JSONStudent);
             }
 
         </script>
