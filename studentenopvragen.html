@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <script>
+            function eersteAanzet(){
+                var xhr = new XMLHttpRequest();
+                var result = "";
+                xhr.onreadystatechange = function(){
+                    if (this.readyState == 4){
+                    console.log("in xhr" + this.responseText + this.readyState);
+                    var jojo = JSON.parse(this.responseText);
+                    console.log(jojo);
+                    var getal;
+                    for (getal =0;getal <jojo.length;getal +=1){
+                        console.log(jojo[getal].voornaam);
+                        result += jojo[getal].voornaam + "<br>";
+                    }
+                    var elem = document.getElementById("studentenlijst");
+                    elem.innerHTML = result;
+
+                    }
+                }
+                xhr.open("GET", "http://localhost:8082/alleStudenten",true);
+                xhr.send();
+            }
+        </script>
+        <style>
+            
+        </style>
+
+    </head>
+    <body>
+        <p id=studentenlijst></p>
+        <button onclick="eersteAanzet()">klik hier</button>
+    </body>
+</html>

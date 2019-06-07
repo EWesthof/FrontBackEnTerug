@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <script>
+            function versturen(){
+                var student = {};
+                var naam = document.getElementById("voornaam");
+                student.voornaam = naam.value;
+                // var leeftijd = document.getElementById("leeftijd");
+                // student.leeftijd = leeftijd.value;
+                console.log(student);
+                var JSONStudent = JSON.stringify(student);
+                console.log(JSONSTUDENT);
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function(){
+                    alert("het is gelukt");
+                }
+                xhr.open("POST", "http://localhost:8082/voegstudenttoe",true);
+                xhr.setRequestHeader('Content-Type','application/json');
+                xhr.send(JSONSTUDENT);
+            }
+
+        </script>
+        <style>
+            
+        </style>
+
+    </head>
+    <body>
+        <label>Voornaam</label>
+        <input type="text" id="voornaam"> <br>
+        <label>Leeftijd</label>
+        <input type="number" id="leeftijd"><br>
+        <button onclick="versturen()">Versturen</button>
+
+    </body>
+</html>
